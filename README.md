@@ -7,6 +7,9 @@ This script transfers events to weekly notes.
 # Install
 * git clone https://github.com/Mozheykin/sync_google_calendar_obsidian.git
 * pip install -r requrements.txt
+* create google API https://support.google.com/googleapi/answer/6158862?hl=en
+* download client_secret.json and move in project folder
+* copy calendar id
 * create file `.env` \
     calendarId=9qhhv7ho@group.calendar.google.com \
     path=/home/legal/github/Obsidian/re/1.Projects(Проекты)/
