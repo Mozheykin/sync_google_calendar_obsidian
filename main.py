@@ -7,6 +7,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.errors import HttpError
 from pathlib import Path
 import random
+from dotenv import load_dotenv
 
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
@@ -124,20 +125,23 @@ def update_and_write_tasks(path_file:str, main_tasks:dict):
 
 
 if __name__ == '__main__':
-    print('[INFO] Sync Google-Obsidian start ...')
+    # print('[INFO] Sync Google-Obsidian start ...')
+    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+    if os.path.exists(dotenv_path):
+        load_dotenv(dotenv_path)
     path=os.getenv('path')
     calendarId = os.getenv('calendarId')
-    print('[INFO] Get env values')
+    # print('[INFO] Get env values')
     path_file = Path(path)
     num_week, year, first_day, end_day = get_dates_of_the_current_week()
-    print('[INFO] Get Google tasks')
+    # print('[INFO] Get Google tasks')
     tasks = get_tasks(calendarId=calendarId, start_date=first_day, end_date=end_day)
     if tasks is not None:
         formated_tasks = proper_formatting_of_tasks(tasks=tasks)
         if formated_tasks is not None:
             path = path_file.joinpath(f'{num_week}.{year}.md')
             if path.exists():
-                print('[INFO] Update tasks in Obsidian ...')
+                # print('[INFO] Update tasks in Obsidian ...')
                 update_and_write_tasks(path_file=path, main_tasks=formated_tasks)
-    print('[INFO] Sync Google-Obsidian ended')
+    # print('[INFO] Sync Google-Obsidian ended')
 
