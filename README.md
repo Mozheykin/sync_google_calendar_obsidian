@@ -4,6 +4,7 @@ This script transfers events to weekly notes.
 # Samples
 ![](https://i.imgur.com/mdQPLWV.png)
 ![](https://i.imgur.com/DJYIYFZ.png)
+![](https://i.imgur.com/iEnYdAa.png)
 # Install
 * git clone https://github.com/Mozheykin/sync_google_calendar_obsidian.git
 * pip install -r requrements.txt
@@ -13,4 +14,5 @@ This script transfers events to weekly notes.
 * create file `.env` \
     calendarId=9qhhv7ho@group.calendar.google.com \
     path=/home/legal/github/Obsidian/re/1.Projects(Проекты)/
+* add in obsidian `#test` and end module `___`
 * start script `python3 main.py`
